@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>Nome</th>
+                    <th>Estrelas</th>
+                    <th>Diaria</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for hotel in hoteis %}
+                <tr>
+                    <td>{{ hotel.nome }}</td>
+                    <td>{{ hotel.diaria }}</td>
+                    <td>{{ hotel.estrelas }}</td>
+                    <td>{{ hotel.cidade }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endblock%}
