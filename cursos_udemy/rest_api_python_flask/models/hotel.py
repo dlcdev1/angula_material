@@ -8,21 +8,25 @@ class HotelModel(banco.Model):
     estrelas = banco.Column(banco.Float(precision=1))
     diaria = banco.Column(banco.Float(precision=2))
     cidade = banco.Column(banco.String(40))
+    total = banco.Column(banco.Float(precision=1))
 
-    def __init__(self, hotel_id, nome, estrelas, diaria, cidade):
+    def __init__(self, hotel_id, nome, estrelas, diaria, cidade, total):
         self.hotel_id = hotel_id
         self.nome = nome
         self.estrelas = estrelas
         self.diaria = diaria
         self.cidade = cidade
+        self.total = total
 
     def json(self):
+        total = self.diaria + self.estrelas
         return {
             'hotel_id': self.hotel_id,
             'nome': self.nome,
             'estrelas': self.estrelas,
             'diaria': self.diaria,
-            'cidade': self.cidade
+            'cidade': self.cidade,
+            'total': total
         }
 
     @classmethod
@@ -36,11 +40,12 @@ class HotelModel(banco.Model):
         banco.session.add(self)
         banco.session.commit()
 
-    def update_hotel(self, nome, estrelas, diaria, cidade):
+    def update_hotel(self, nome, estrelas, diaria, cidade, total):
         self.nome = nome
         self.estrelas = estrelas
         self.diaria = diaria
         self.cidade = cidade
+        self.total = total
 
     def delet_hotel(self):
         banco.session.delete(self)

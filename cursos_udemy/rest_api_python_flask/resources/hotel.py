@@ -7,21 +7,24 @@ hoteis = [
         'nome': 'Alpha Hotel',
         'estrelas': 4.3,
         'diaria': 420.34,
-        'cidade': 'Rio de Janeiro'
+        'cidade': 'Rio de Janeiro',
+        'total': 2
     },
     {
         'hotel_id': 'bravo',
         'nome': 'Bravo Hotel',
         'estrelas': 4.4,
         'diaria': 380.90,
-        'cidade': 'Santa Catarina'
+        'cidade': 'Santa Catarina',
+        'total': 2
     },
     {
         'hotel_id': 'charlie',
         'nome': 'Charlie Hotel',
         'estrelas': 4.3,
         'diaria': 420.34,
-        'cidade': 'Santa Catarina'
+        'cidade': 'Santa Catarina',
+        'total': 2
     }
 ]
 
@@ -36,6 +39,7 @@ class Hotel(Resource):
     argumentos.add_argument('estrelas', type=float, required=True, help="The field 'estrelas' cannot be left blank. ")
     argumentos.add_argument('diaria')
     argumentos.add_argument('cidade')
+    argumentos.add_argument('total')
 
 
 
